@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+
+    </p>
+    <script>
+        numOfCourses= parseInt(prompt("How many courses did you finish?", "0"))
+        if (Number.isInteger(numOfCourses)==true){
+            let courseMarks= []
+            for (let i=0; i<numOfCourses; i++){
+                let cpt=i+1;
+                courseMarks[i]=parseFloat(prompt("Enter the mark for your course "+ cpt +":"));
+            }
+            for (let j=0; j<numOfCourses; j++){
+                document.write("<p>"+courseMarks[j]+"</p>")
+            }
+            let total=0;
+            for (let k=0; k<numOfCourses; k++){
+                //the average will be represented with 2 decimal points only if necessary 
+                //<==> if you enter a float grade.
+                total=parseFloat(total+courseMarks[k]);
+            }
+            let average=parseFloat(total/numOfCourses).toFixed(2);
+            if (average>=90.0 && average<=100.0){
+                document.write("<p>" + "Your final average is "+ Math.round(average*100)/100 +". Your grade is A+" +"</p>");
+            }
+            if (average>=80.0 && average<=89.0){
+                document.write("<p>" + "Your final average is "+ average +". Your grade is B" +"</p>");
+            }
+            if (average>=70.0 && average<=79.0){
+                document.write("<p>" + "Your final average is "+ average +". Your grade is C"+"</p>");
+            }
+            if (average>60.0 && average<=69.0){
+                document.write("<p>" + "Your final average is "+ average +". Your grade is D"+"</p>");
+            }
+            if (average<60.0){
+                document.write("<p>" + "Your final average is "+ average +". Your grade is F"+"</p>");
+            }
+            else if (average<0 || average>100){
+                document.write("<p>" + "Sorry, All the marks have to be from minimum 0 to maximum 100!"+"</p>");
+            }
+        }
+        else{
+            document.write("<p>"+"Invalid Input!"+"</p>")
+        }
+    </script>
+</body>
+</html>
